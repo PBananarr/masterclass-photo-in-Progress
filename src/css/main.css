@@ -1,3 +1,5 @@
+/* 67% == 80% Laptop */
+
 
 /* ==== GENERELLES ==== */
 * {
@@ -10,35 +12,96 @@ html {
     font-size: 100%;
     font-family: 'Jost', sans-serif;
 }
+@media (min-width: 93.75em) {
+    html {
+        font-size: 133%;
+    }
+}
 
 
 .container {
-width: 75rem;
+max-width: 75rem;
 margin: 0px auto;
 }
 
 /*  ==== HEADER ==== */
 .header {
-    height: 40rem;
-    background-image: linear-gradient(-5.71deg, white 49.8%, transparent 50.2%);
-    background-repeat: no-repeat;
-    background-position: center 100%;
-    background-size: 100vw 10vw;
+    height: 35rem;
+    min-height: calc(12.5rem + 32vw);
+    position: relative;
+    overflow: hidden;
 }
-.header__background {
-    height: 40rem;
+.header::before {
+    content: "";
+    width: 100vw;
     background-image: url(../img/pexels-benjamin-suter-3617500.jpg);
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 100% auto;
+    position: absolute;
+    bottom: -9rem;
+    top: 0;
 }
 
-.header__mountains {
-    height: 40rem;
+
+.header::after {
+    content: "";
+    height: 33vw; /*Hier MUSS VW Stehen, nicht VH, BILD SKALIERT SO MIT BREITE, HÖHE BLEIBT*/
+    width: 100vw;
     background-image: url(../img/pexels-benjamin-suter-3617500-mountains.webp);
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 100% auto;
+    position: absolute;
+    bottom: -8.9rem;
+}
+
+@media (max-width: 62em) {
+    .header::before {
+        bottom: -3rem;
+    }
+   }
+   @media (max-width: 48em) {
+       .header::before {
+           bottom: 3rem;
+       }
+   }
+   @media (max-width: 40em) {
+       .header::before {
+           background-size: cover;
+       }
+   }
+@media (max-width: 62em) {
+    .header::after {
+        bottom: -2.9rem;
+    }
+}
+@media (max-width: 48em) {
+    .header::after {
+        bottom: 3.1rem;
+    }
+}
+@media (max-width: 40em) {
+    .header::after {
+        display: none;
+    }
+}
+
+.header__slope {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 10vw;
+    background-image: linear-gradient(-5.71deg, white 49.8%, transparent 50.2%);
+    background-repeat: no-repeat;
+    background-position: center 100%;
+    background-size: 100vw 10vw;
+    z-index: 1;
+}
+
+.header__container {
+    position: relative;
 }
 
 .icon {
@@ -54,7 +117,11 @@ margin: 0px auto;
     display: block;
     float: left;
 }
-
+@media(max-width: 62em) {
+    .navigation__list-item-link--mobile-hidden {
+        display: none;
+    }
+}
 
 .navigation__list-item--menu {
     float: right;
@@ -99,9 +166,9 @@ margin: 0px auto;
     fill: currentColor;
 }
 
-.header__heading-container2 {
+.header__heading-container {
     clear: both;
-    padding-top: 5rem;
+    padding-top: 4rem;
 }
 
 .header__heading-main {
@@ -115,6 +182,26 @@ margin: 0px auto;
     background-clip: text;
     -webkit-background-clip: text;
 }
+@media(max-width: 62em) {
+    .header__heading-main {
+        font-size: 5rem;
+    }
+}
+@media(max-width: 48em) {
+    .header__heading-main {
+        font-size: 4rem;
+    }
+}
+@media(max-width: 36em) {
+    .header__heading-main {
+        font-size: 3rem;
+    }
+}
+@media(max-width: 26.5625em) {
+    .header__heading-main {
+        font-size: 2.25rem;
+    }
+}
 
 .header__heading-sub {
     text-transform: uppercase;
@@ -123,5 +210,30 @@ margin: 0px auto;
     font-size: 1.4rem;
     letter-spacing: .4rem;
     margin-top: 1rem;
-    text-shadow: 0 0 0.5rem rgba(0,0,0, .5);
+    text-shadow: 0 0 0.5rem rgb(0,0,0);
+    position: relative;
+    z-index: 1;
+}
+@media(max-width: 48em) {
+    .header__heading-sub {
+        font-size: 1rem;
+    }
+}
+@media(max-width: 36em) {
+    .header__heading-sub {
+        width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+@media(max-width: 31em) {
+    .header__heading-sub {
+        width: 80%;
+    }
+}
+@media(max-width: 26.5625em) {
+    .header__heading-sub {
+        font-size: .8rem;
+        width: 98%;
+    }
 }
