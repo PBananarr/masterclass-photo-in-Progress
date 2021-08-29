@@ -31,6 +31,12 @@ margin: 0px auto;
     position: relative;
     overflow: hidden;
 }
+@media (max-width: 75em) {
+    .header {
+        min-height: calc(14rem + 34vw);
+    }
+}
+
 .header::before {
     content: "";
     width: 100vw;
@@ -44,6 +50,7 @@ margin: 0px auto;
 }
 
 
+
 .header::after {
     content: "";
     height: 33vw; /*Hier MUSS VW Stehen, nicht VH, BILD SKALIERT SO MIT BREITE, HÖHE BLEIBT*/
@@ -55,37 +62,37 @@ margin: 0px auto;
     position: absolute;
     bottom: -8.9rem;
 }
-
-@media (max-width: 62em) {
+@media(max-width: 75em) {
+    .header::before {
+        bottom: -6rem;
+    }
+}
+@media(max-width: 75em) {
+    .header::after {
+        bottom: -5.9rem;
+    }
+}
+@media(max-width: 62em) {
     .header::before {
         bottom: -3rem;
     }
-   }
-   @media (max-width: 48em) {
-       .header::before {
-           bottom: 3rem;
-       }
-   }
-   @media (max-width: 40em) {
-       .header::before {
-           background-size: cover;
-       }
-   }
-@media (max-width: 62em) {
+}
+@media(max-width: 62em) {
     .header::after {
         bottom: -2.9rem;
     }
 }
-@media (max-width: 48em) {
-    .header::after {
-        bottom: 3.1rem;
+@media(max-width: 48em) {
+    .header::before {
+        background-size: cover;
     }
 }
-@media (max-width: 40em) {
+@media(max-width: 48em) {
     .header::after {
-        display: none;
+        display: none
     }
 }
+
 
 .header__slope {
     position: absolute;
@@ -182,6 +189,7 @@ margin: 0px auto;
     background-clip: text;
     -webkit-background-clip: text;
 }
+
 @media(max-width: 62em) {
     .header__heading-main {
         font-size: 5rem;
@@ -192,16 +200,17 @@ margin: 0px auto;
         font-size: 4rem;
     }
 }
-@media(max-width: 36em) {
+@media(max-width: 35.3125em) {
     .header__heading-main {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
 }
-@media(max-width: 26.5625em) {
+@media(max-width: 23.4375em) {
     .header__heading-main {
-        font-size: 2.25rem;
+        font-size: 2rem;
     }
 }
+
 
 .header__heading-sub {
     text-transform: uppercase;
@@ -214,26 +223,27 @@ margin: 0px auto;
     position: relative;
     z-index: 1;
 }
+
+
+@media(max-width: 62em) {
+    .header__heading-sub {
+        font-size: 1.25rem;
+    }
+}
 @media(max-width: 48em) {
     .header__heading-sub {
         font-size: 1rem;
     }
 }
-@media(max-width: 36em) {
+@media (max-width: 41.25em) {
     .header__heading-sub {
-        width: 70%;
+        width: 60%;
         margin-left: auto;
         margin-right: auto;
     }
 }
-@media(max-width: 31em) {
+@media(max-width: 35.3125em) {
     .header__heading-sub {
-        width: 80%;
-    }
-}
-@media(max-width: 26.5625em) {
-    .header__heading-sub {
-        font-size: .8rem;
-        width: 98%;
+        width: 90%;
     }
 }
